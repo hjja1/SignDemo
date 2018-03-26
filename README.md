@@ -29,8 +29,12 @@
    //设置星期  默认 星期一 星期二.......
         
         mcv.setWeekDayLabels(new String[]{"SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"});
-        mcv.setOnDateChangedListener(this);
-        mcv.setOnMonthChangedListener(this)；
+   //日期点击监听
+   
+      mcv.setOnDateChangedListener(this);
+   //月份切换监听，在方法里请求接口 目前demo中用的随机数模拟数据。所以数据不固定
+   
+      mcv.setOnMonthChangedListener(this)；
   
   //当前时间的Decorator，通过不同的span来修改其背景。具体步骤如下 
   
