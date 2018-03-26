@@ -87,7 +87,8 @@ public class MainActivity extends AppCompatActivity implements OnDateSelectedLis
         String[] split = dateStr.split("-");
         String s = split[2];
         day = Integer.parseInt(s);
-        parse = TimeUtil.string2Date(dateStr, "yyyy-MM-dd"); //获取这个是为了和后面的date判断是否在同一天。直接用date不行 或者自行写一个方法去判断两个date是否在同一天
+        //获取这个是为了和后面的date判断是否在同一天。直接用date不行 或者自行写一个方法去判断两个date是否在同一天
+        parse = TimeUtil.string2Date(dateStr, "yyyy-MM-dd");
         getData(day);
         initData();
     }
