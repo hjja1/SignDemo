@@ -6,7 +6,7 @@
 ![demoImg](https://github.com/hjja1/SignDemo/blob/master/image/device-2018-03-26-152829.png)
 
 
-  //设置第一天是周日   最小日期 2017年1月1日， 形式 月   可切换成周
+//设置第一天是周日   最小日期 2017年1月1日， 形式 月   可切换成周
               
               mcv.state().edit()
                 .setFirstDayOfWeek(Calendar.SUNDAY)
@@ -14,7 +14,7 @@
                 .setMaximumDate(new CalendarDay())
                 .setCalendarDisplayMode(CalendarMode.MONTHS)
                 .commit();
-   //设置年月的title
+//设置年月的title
         
         mcv.setTitleFormatter(new TitleFormatter() {
             @Override
@@ -26,17 +26,19 @@
                 return buffer;
             }
         });
-   //设置星期  默认 星期一 星期二.......
+//设置星期  默认 星期一 星期二.......
         
         mcv.setWeekDayLabels(new String[]{"SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"});
-   //日期点击监听
+        
+//日期点击监听
    
       mcv.setOnDateChangedListener(this);
-   //月份切换监听，在方法里请求接口 目前demo中用的随机数模拟数据。所以数据不固定
+      
+//月份切换监听，在方法里请求接口 目前demo中用的随机数模拟数据。所以数据不固定
    
       mcv.setOnMonthChangedListener(this)；
   
-  //当前时间的Decorator，通过不同的span来修改其背景。具体步骤如下 
+//当前时间的Decorator，通过不同的span来修改其背景。具体步骤如下 
   
   
       public class SameDayDecorator implements DayViewDecorator {
@@ -70,7 +72,7 @@
         }
     }
     
-    
+    
 //背景Span
 
       public class TodayBGSpan implements LineBackgroundSpan {
