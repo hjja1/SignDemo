@@ -1,11 +1,10 @@
 package demo.hjj.com.newsigndemo;
 
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.os.Handler;
-import android.os.Message;
-import android.os.PersistableBundle;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +12,9 @@ import android.text.style.ForegroundColorSpan;
 import android.text.style.LineBackgroundSpan;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.CalendarMode;
@@ -23,7 +25,6 @@ import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 import com.prolificinteractive.materialcalendarview.OnMonthChangedListener;
 import com.prolificinteractive.materialcalendarview.format.TitleFormatter;
 
-import java.text.Format;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -92,6 +93,38 @@ public class MainActivity extends AppCompatActivity implements OnDateSelectedLis
         getData(day);
         initData();
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.qq:
+                joinQQGroup("qx4HOvKFL7xTFcWSrK-a7rZfjiGigPFf");
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+    public boolean joinQQGroup(String key) {
+        Intent intent = new Intent();
+        intent.setData(Uri.parse("mqqopensdkapi://bizAgent/qm/qr?url=http%3A%2F%2Fqm.qq.com%2Fcgi-bin%2Fqm%2Fqr%3Ffrom%3Dapp%26p%3Dandroid%26k%3D" + key));
+        try {
+            startActivity(intent);
+            return true;
+        } catch (Exception e) {
+            ToastUtil.showMsg("未安装手Q或安装的版本不支持");
+            return false;
+        }
+    }
+
+
+
 
 
     //获取一个集合 模拟数据
