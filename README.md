@@ -7,13 +7,15 @@
 
 
   //设置第一天是周日   最小日期 2017年1月1日， 形式 月   可切换成周
-        mcv.state().edit()
+              
+              mcv.state().edit()
                 .setFirstDayOfWeek(Calendar.SUNDAY)
                 .setMinimumDate(CalendarDay.from(2017, 1, 1))
                 .setMaximumDate(new CalendarDay())
                 .setCalendarDisplayMode(CalendarMode.MONTHS)
                 .commit();
-        //设置年月的title
+   //设置年月的title
+        
         mcv.setTitleFormatter(new TitleFormatter() {
             @Override
             public CharSequence format(CalendarDay day) {
@@ -24,13 +26,16 @@
                 return buffer;
             }
         });
-        //设置星期  默认 星期一 星期二.......
+   //设置星期  默认 星期一 星期二.......
+        
         mcv.setWeekDayLabels(new String[]{"SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"});
         mcv.setOnDateChangedListener(this);
         mcv.setOnMonthChangedListener(this)；
   
   //当前时间的Decorator，通过不同的span来修改其背景。具体步骤如下 
-  public class SameDayDecorator implements DayViewDecorator {
+  
+  
+      public class SameDayDecorator implements DayViewDecorator {
         @Override
         public boolean shouldDecorate(CalendarDay day) {
             if (day.getDate().equals(parse)) {
@@ -39,7 +44,7 @@
             return false;
         }
 
-  @Override
+      @Override
         public void decorate(DayViewFacade view) {
             view.addSpan(new TodayBGSpan());
             view.addSpan(new TodaySpan());
@@ -49,7 +54,8 @@
     
     
 //字体span
-public class TodaySpan implements LineBackgroundSpan {
+         
+         public class TodaySpan implements LineBackgroundSpan {
 
     @Override
     public void drawBackground(Canvas c, Paint p, int left, int right, int top, int baseline, int bottom, CharSequence text, int start, int end, int lnum) {
@@ -62,7 +68,8 @@ public class TodaySpan implements LineBackgroundSpan {
     
     
 //背景Span
- public class TodayBGSpan implements LineBackgroundSpan {
+
+      public class TodayBGSpan implements LineBackgroundSpan {
 
     @Override
     public void drawBackground(Canvas c, Paint p, int left, int right, int top, int baseline, int bottom, CharSequence text, int start, int end, int lnum) {
@@ -80,7 +87,8 @@ public class TodaySpan implements LineBackgroundSpan {
     
     
  //最后将所有的Decorator放进去。
- mcv.addDecorators(sameDayDecorator.....);
+ 
+     mcv.addDecorators(sameDayDecorator.....);
  
 详细内容请看demo
 
