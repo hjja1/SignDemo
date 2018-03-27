@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements OnDateSelectedLis
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.qq:
-                joinQQGroup("qx4HOvKFL7xTFcWSrK-a7rZfjiGigPFf");
+                joinQQGroup("R2d-iagCFxgYaOo4609xAjhJBX2erO1X");
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
