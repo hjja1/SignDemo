@@ -1,9 +1,14 @@
-#签到Demo 
+﻿#签到Demo 
 
    compile 'com.prolificinteractive:material-calendarview:1.4.3'
 
+
+
 支持自定义日期的各个背景
 ![demoImg](https://github.com/hjja1/SignDemo/blob/master/image/device-2018-03-26-152829.png)
+
+
+![qqGroup](https://github.com/hjja1/SignDemo/blob/master/image/1522116045666.png)
 
 
 //设置第一天是周日   最小日期 2017年1月1日， 形式 月   可切换成周
